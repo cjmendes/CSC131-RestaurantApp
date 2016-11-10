@@ -28,57 +28,106 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.num1But = new System.Windows.Forms.Button();
+            this.num2But = new System.Windows.Forms.Button();
+            this.lblLogInput = new System.Windows.Forms.Label();
+            this.num3But = new System.Windows.Forms.Button();
+            this.num4But = new System.Windows.Forms.Button();
+            this.num5But = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // num1But
             // 
-            this.button1.Location = new System.Drawing.Point(326, 150);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(78, 67);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.num1But.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.num1But.Location = new System.Drawing.Point(295, 176);
+            this.num1But.Name = "num1But";
+            this.num1But.Size = new System.Drawing.Size(53, 53);
+            this.num1But.TabIndex = 0;
+            this.num1But.Text = "1";
+            this.num1But.UseVisualStyleBackColor = true;
+            this.num1But.Click += new System.EventHandler(this.num1But_Click);
             // 
-            // button2
+            // num2But
             // 
-            this.button2.Location = new System.Drawing.Point(116, 69);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(59, 42);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.num2But.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.num2But.Location = new System.Drawing.Point(365, 176);
+            this.num2But.Name = "num2But";
+            this.num2But.Size = new System.Drawing.Size(53, 53);
+            this.num2But.TabIndex = 1;
+            this.num2But.Text = "2";
+            this.num2But.UseVisualStyleBackColor = true;
+            this.num2But.Click += new System.EventHandler(this.num2But_Click);
             // 
-            // button3
+            // lblLogInput
             // 
-            this.button3.Location = new System.Drawing.Point(92, 170);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(52, 46);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.lblLogInput.AutoSize = true;
+            this.lblLogInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLogInput.Location = new System.Drawing.Point(319, 106);
+            this.lblLogInput.Name = "lblLogInput";
+            this.lblLogInput.Size = new System.Drawing.Size(109, 39);
+            this.lblLogInput.TabIndex = 2;
+            this.lblLogInput.Text = " - - - -";
+            // 
+            // num3But
+            // 
+            this.num3But.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.num3But.Location = new System.Drawing.Point(432, 176);
+            this.num3But.Name = "num3But";
+            this.num3But.Size = new System.Drawing.Size(53, 53);
+            this.num3But.TabIndex = 3;
+            this.num3But.Text = "3";
+            this.num3But.UseVisualStyleBackColor = true;
+            this.num3But.Click += new System.EventHandler(this.num3But_Click);
+            // 
+            // num4But
+            // 
+            this.num4But.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.num4But.Location = new System.Drawing.Point(295, 242);
+            this.num4But.Name = "num4But";
+            this.num4But.Size = new System.Drawing.Size(53, 53);
+            this.num4But.TabIndex = 4;
+            this.num4But.Text = "4";
+            this.num4But.UseVisualStyleBackColor = true;
+            this.num4But.Click += new System.EventHandler(this.num4But_Click);
+            // 
+            // num5But
+            // 
+            this.num5But.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.num5But.Location = new System.Drawing.Point(365, 243);
+            this.num5But.Name = "num5But";
+            this.num5But.Size = new System.Drawing.Size(53, 53);
+            this.num5But.TabIndex = 5;
+            this.num5But.Text = "5";
+            this.num5But.UseVisualStyleBackColor = true;
+            this.num5But.Click += new System.EventHandler(this.num5But_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(509, 348);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.ClientSize = new System.Drawing.Size(810, 454);
+            this.Controls.Add(this.num5But);
+            this.Controls.Add(this.num4But);
+            this.Controls.Add(this.num3But);
+            this.Controls.Add(this.lblLogInput);
+            this.Controls.Add(this.num2But);
+            this.Controls.Add(this.num1But);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Red-E";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button num1But;
+        private System.Windows.Forms.Button num2But;
+        private System.Windows.Forms.Label lblLogInput;
+        private System.Windows.Forms.Button num3But;
+        private System.Windows.Forms.Button num4But;
+        private System.Windows.Forms.Button num5But;
     }
 }
 

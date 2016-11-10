@@ -19,4 +19,5 @@ namespace RestaurantAuto
             Application.Run(new Form1());
         }
     }
+
 }

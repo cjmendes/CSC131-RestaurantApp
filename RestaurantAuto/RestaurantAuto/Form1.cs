@@ -24,7 +24,9 @@ namespace RestaurantAuto
         /********************************************
          ***               BUTTONS                ***
          ********************************************/
-        private void num1But_Click(object sender, EventArgs e)
+
+        // Adds the number clicked to the current label position
+        private void num1But_Click(object sender, EventArgs e)  
         {
             if (logInPosition < 4)
             {
@@ -34,6 +36,7 @@ namespace RestaurantAuto
             }
         }
 
+        // Adds the number clicked to the current label position
         private void num2But_Click(object sender, EventArgs e)
         {
             if (logInPosition < 4)
@@ -44,6 +47,7 @@ namespace RestaurantAuto
             }
         }
 
+        // Adds the number clicked to the current label position
         private void num3But_Click(object sender, EventArgs e)
         {
             if (logInPosition < 4)
@@ -54,6 +58,7 @@ namespace RestaurantAuto
             }
         }
 
+        // Adds the number clicked to the current label position
         private void num4But_Click(object sender, EventArgs e)
         {
             if (logInPosition < 4)
@@ -64,6 +69,7 @@ namespace RestaurantAuto
             }
         }
 
+        // Adds the number clicked to the current label position
         private void num5But_Click(object sender, EventArgs e)
         {
             if (logInPosition < 4)
@@ -74,6 +80,7 @@ namespace RestaurantAuto
             }
         }
 
+        // Adds the number clicked to the current label position
         private void num6But_Click(object sender, EventArgs e)
         {
             if (logInPosition < 4)
@@ -84,6 +91,7 @@ namespace RestaurantAuto
             }
         }
 
+        // Adds the number clicked to the current label position
         private void num7But_Click(object sender, EventArgs e)
         {
             if (logInPosition < 4)
@@ -94,6 +102,7 @@ namespace RestaurantAuto
             }
         }
 
+        // Adds the number clicked to the current label position
         private void num8But_Click(object sender, EventArgs e)
         {
             if (logInPosition < 4)
@@ -104,6 +113,7 @@ namespace RestaurantAuto
             }
         }
 
+        // Adds the number clicked to the current label position
         private void num9But_Click(object sender, EventArgs e)
         {
             if (logInPosition < 4)
@@ -114,6 +124,7 @@ namespace RestaurantAuto
             }
         }
 
+        // Adds the number clicked to the current label position
         private void num0But_Click(object sender, EventArgs e)
         {
             if (logInPosition < 4)
@@ -124,6 +135,7 @@ namespace RestaurantAuto
             }
         }
 
+        // Removes the last button clicked and restores to "-"
         private void btnBackspace_Click(object sender, EventArgs e)
         {
             if (logInPosition > 0) { 
@@ -139,6 +151,8 @@ namespace RestaurantAuto
             }
         }
 
+        // If clicked checks whether there were 4 values inputed. If not, it just clears the screen,
+        // but if it does, calls checkPassword()
         private void btnEnter_Click(object sender, EventArgs e)
         {
             if (logInPosition < 4)
@@ -152,6 +166,7 @@ namespace RestaurantAuto
          ***              FUNCTIONS               ***
          ********************************************/
 
+        // Function restores all 4 labels to "-"
         private void clearLogIn()
         {
             for (int i = 0; i < logIn.Length; i++)
@@ -160,15 +175,22 @@ namespace RestaurantAuto
             refreshLogIn();
         }
 
+        // Checks whether the 4 values are the same as the password. Password is a static '1234' right now.
+        // If it fails, it clears the values, if it works, it hides the form and opens up the main screen
         private void checkPassword()
         {
             string tempPass = "" + logIn[0] + logIn[1] + logIn[2] + logIn[3];
             if (logInPassword == tempPass)
-                tempPass = "done";
+            {
+                MainScreen form2 = new MainScreen();
+                form2.Show();
+                this.Hide();
+            }
             else
                 clearLogIn();
         }
 
+        // Refreshes the labels with what is in place.
         private void refreshLogIn()
         {
 

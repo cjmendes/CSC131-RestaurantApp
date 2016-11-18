@@ -32,7 +32,7 @@ namespace RestaurantAuto
 
         private void btnTable1_Click(object sender, EventArgs e)
         {
-
+            btnAssign.Enabled = true;
         }
     }
 }

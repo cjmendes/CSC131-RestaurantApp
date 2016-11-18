@@ -106,6 +106,7 @@
             // 
             // btnAssign
             // 
+            this.btnAssign.Enabled = false;
             this.btnAssign.Location = new System.Drawing.Point(23, 405);
             this.btnAssign.Name = "btnAssign";
             this.btnAssign.Size = new System.Drawing.Size(62, 24);
@@ -115,6 +116,7 @@
             // 
             // btnVacate
             // 
+            this.btnVacate.Enabled = false;
             this.btnVacate.Location = new System.Drawing.Point(121, 405);
             this.btnVacate.Name = "btnVacate";
             this.btnVacate.Size = new System.Drawing.Size(62, 24);

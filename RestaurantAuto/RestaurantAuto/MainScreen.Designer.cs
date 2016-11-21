@@ -31,8 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.lblClock = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btnTable1 = new System.Windows.Forms.Button();
             this.btnTable2 = new System.Windows.Forms.Button();
             this.btnTable3 = new System.Windows.Forms.Button();
@@ -40,6 +38,8 @@
             this.btnVacate = new System.Windows.Forms.Button();
             this.btnReserve = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
+            this.lblClock = new System.Windows.Forms.Label();
+            this.tmrClock = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -61,20 +61,6 @@
             this.pictureBox2.Size = new System.Drawing.Size(630, 69);
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
-            // 
-            // lblClock
-            // 
-            this.lblClock.AutoSize = true;
-            this.lblClock.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClock.Location = new System.Drawing.Point(639, 0);
-            this.lblClock.Name = "lblClock";
-            this.lblClock.Size = new System.Drawing.Size(159, 33);
-            this.lblClock.TabIndex = 2;
-            this.lblClock.Text = "00 : 00 : 00";
-            // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
             // 
             // btnTable1
             // 
@@ -144,11 +130,28 @@
             this.btnLogOut.UseVisualStyleBackColor = true;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
+            // lblClock
+            // 
+            this.lblClock.AutoSize = true;
+            this.lblClock.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClock.Location = new System.Drawing.Point(632, 0);
+            this.lblClock.Name = "lblClock";
+            this.lblClock.Size = new System.Drawing.Size(178, 33);
+            this.lblClock.TabIndex = 10;
+            this.lblClock.Text = "00:00:00 AM";
+            // 
+            // tmrClock
+            // 
+            this.tmrClock.Enabled = true;
+            this.tmrClock.Interval = 1000;
+            this.tmrClock.Tick += new System.EventHandler(this.tmrClock_Tick);
+            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(810, 450);
+            this.Controls.Add(this.lblClock);
             this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.btnReserve);
             this.Controls.Add(this.btnVacate);
@@ -156,11 +159,10 @@
             this.Controls.Add(this.btnTable3);
             this.Controls.Add(this.btnTable2);
             this.Controls.Add(this.btnTable1);
-            this.Controls.Add(this.lblClock);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Name = "MainScreen";
-            this.Text = "Form2";
+            this.Text = "Red-E";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
@@ -172,8 +174,6 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label lblClock;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button btnTable1;
         private System.Windows.Forms.Button btnTable2;
         private System.Windows.Forms.Button btnTable3;
@@ -181,5 +181,7 @@
         private System.Windows.Forms.Button btnVacate;
         private System.Windows.Forms.Button btnReserve;
         private System.Windows.Forms.Button btnLogOut;
+        private System.Windows.Forms.Label lblClock;
+        private System.Windows.Forms.Timer tmrClock;
     }
 }

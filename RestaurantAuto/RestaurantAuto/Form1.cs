@@ -15,6 +15,7 @@ namespace RestaurantAuto
         int[] logIn = Enumerable.Repeat(-1, 4).ToArray();
         string logInPassword = "1234";
         int logInPosition = 0;
+        private MainScreen msForm = new MainScreen();
 
         public Form1()
         {
@@ -182,9 +183,11 @@ namespace RestaurantAuto
             string tempPass = "" + logIn[0] + logIn[1] + logIn[2] + logIn[3];
             if (logInPassword == tempPass)
             {
-                MainScreen form2 = new MainScreen();
-                form2.Show();
-                this.Hide();
+                clearLogIn();
+                msForm.Tag = this;
+                msForm.Show(this);
+                Hide();
+                
             }
             else
                 clearLogIn();

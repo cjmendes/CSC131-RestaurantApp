@@ -20,19 +20,21 @@ namespace RestaurantAuto
             InitializeComponent();
         }
 
-        void clockTimer_Tick(object sender, EventArgs e)
-        {
-            lblClock.Text = DateTime.Now.ToString();
-        }
-
         private void btnLogOut_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            var form1 = (Form1)Tag;
+            form1.Show();
+            Hide();
         }
 
         private void btnTable1_Click(object sender, EventArgs e)
         {
             btnAssign.Enabled = true;
+        }
+
+        private void tmrClock_Tick(object sender, EventArgs e)
+        {
+            lblClock.Text = DateTime.Now.ToString("HH:mm:ss tt");
         }
     }
 }

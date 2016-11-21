@@ -40,6 +40,8 @@
             this.btnLogOut = new System.Windows.Forms.Button();
             this.lblClock = new System.Windows.Forms.Label();
             this.tmrClock = new System.Windows.Forms.Timer(this.components);
+            this.tmrTimeout = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -146,11 +148,27 @@
             this.tmrClock.Interval = 1000;
             this.tmrClock.Tick += new System.EventHandler(this.tmrClock_Tick);
             // 
+            // tmrTimeout
+            // 
+            this.tmrTimeout.Enabled = true;
+            this.tmrTimeout.Interval = 1000;
+            this.tmrTimeout.Tick += new System.EventHandler(this.tmrTimeout_Tick);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(305, 216);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "label1";
+            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(810, 450);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblClock);
             this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.btnReserve);
@@ -183,5 +201,7 @@
         private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.Label lblClock;
         private System.Windows.Forms.Timer tmrClock;
+        private System.Windows.Forms.Timer tmrTimeout;
+        private System.Windows.Forms.Label label1;
     }
 }

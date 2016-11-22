@@ -34,5 +34,10 @@ namespace RestaurantAuto
         {
 
         }
+
+        private void btnVacate_Click(object sender, EventArgs e)
+        {
+            // btnTable1.BackColor = 
+        }
     }
 }

@@ -176,15 +176,18 @@ namespace RestaurantAuto
         }
 
         // Checks whether the 4 values are the same as the password. Password is a static '1234' right now.
-        // If it fails, it clears the values, if it works, it hides the form and opens up the main screen
+        // If it fails, it clears the values, if it works, it clears the password, hides the form and opens
+        // up a MainScreen form
         private void checkPassword()
         {
             string tempPass = "" + logIn[0] + logIn[1] + logIn[2] + logIn[3];
             if (logInPassword == tempPass)
             {
-                MainScreen form2 = new MainScreen();
-                form2.Show();
-                this.Hide();
+                clearLogIn();
+                MainScreen msForm = new MainScreen();
+                msForm.Tag = this;
+                msForm.Show(this);
+                Hide();    
             }
             else
                 clearLogIn();

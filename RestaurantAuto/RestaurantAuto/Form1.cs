@@ -218,5 +218,9 @@ namespace RestaurantAuto
                 lblLogInput4.Text = "" + logIn[3];
         }
 
+        private void lblLogInput3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

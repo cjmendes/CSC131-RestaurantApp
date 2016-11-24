@@ -49,9 +49,10 @@
             // num1But
             // 
             this.num1But.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.num1But.Location = new System.Drawing.Point(302, 136);
+            this.num1But.Location = new System.Drawing.Point(403, 167);
+            this.num1But.Margin = new System.Windows.Forms.Padding(4);
             this.num1But.Name = "num1But";
-            this.num1But.Size = new System.Drawing.Size(53, 53);
+            this.num1But.Size = new System.Drawing.Size(71, 65);
             this.num1But.TabIndex = 0;
             this.num1But.Text = "1";
             this.num1But.UseVisualStyleBackColor = true;
@@ -60,9 +61,10 @@
             // num2But
             // 
             this.num2But.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.num2But.Location = new System.Drawing.Point(370, 136);
+            this.num2But.Location = new System.Drawing.Point(493, 167);
+            this.num2But.Margin = new System.Windows.Forms.Padding(4);
             this.num2But.Name = "num2But";
-            this.num2But.Size = new System.Drawing.Size(53, 53);
+            this.num2But.Size = new System.Drawing.Size(71, 65);
             this.num2But.TabIndex = 1;
             this.num2But.Text = "2";
             this.num2But.UseVisualStyleBackColor = true;
@@ -73,18 +75,20 @@
             this.lblLogInput1.AutoSize = true;
             this.lblLogInput1.BackColor = System.Drawing.Color.Transparent;
             this.lblLogInput1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogInput1.Location = new System.Drawing.Point(320, 67);
+            this.lblLogInput1.Location = new System.Drawing.Point(427, 82);
+            this.lblLogInput1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLogInput1.Name = "lblLogInput1";
-            this.lblLogInput1.Size = new System.Drawing.Size(30, 39);
+            this.lblLogInput1.Size = new System.Drawing.Size(39, 52);
             this.lblLogInput1.TabIndex = 2;
             this.lblLogInput1.Text = "-";
             // 
             // num3But
             // 
             this.num3But.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.num3But.Location = new System.Drawing.Point(438, 136);
+            this.num3But.Location = new System.Drawing.Point(584, 167);
+            this.num3But.Margin = new System.Windows.Forms.Padding(4);
             this.num3But.Name = "num3But";
-            this.num3But.Size = new System.Drawing.Size(53, 53);
+            this.num3But.Size = new System.Drawing.Size(71, 65);
             this.num3But.TabIndex = 3;
             this.num3But.Text = "3";
             this.num3But.UseVisualStyleBackColor = true;
@@ -93,9 +97,10 @@
             // num4But
             // 
             this.num4But.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.num4But.Location = new System.Drawing.Point(302, 202);
+            this.num4But.Location = new System.Drawing.Point(403, 249);
+            this.num4But.Margin = new System.Windows.Forms.Padding(4);
             this.num4But.Name = "num4But";
-            this.num4But.Size = new System.Drawing.Size(53, 53);
+            this.num4But.Size = new System.Drawing.Size(71, 65);
             this.num4But.TabIndex = 4;
             this.num4But.Text = "4";
             this.num4But.UseVisualStyleBackColor = true;
@@ -104,9 +109,10 @@
             // num5But
             // 
             this.num5But.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.num5But.Location = new System.Drawing.Point(370, 202);
+            this.num5But.Location = new System.Drawing.Point(493, 249);
+            this.num5But.Margin = new System.Windows.Forms.Padding(4);
             this.num5But.Name = "num5But";
-            this.num5But.Size = new System.Drawing.Size(53, 53);
+            this.num5But.Size = new System.Drawing.Size(71, 65);
             this.num5But.TabIndex = 5;
             this.num5But.Text = "5";
             this.num5But.UseVisualStyleBackColor = true;
@@ -116,9 +122,10 @@
             // 
             this.lblLogInput2.AutoSize = true;
             this.lblLogInput2.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogInput2.Location = new System.Drawing.Point(363, 67);
+            this.lblLogInput2.Location = new System.Drawing.Point(484, 82);
+            this.lblLogInput2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLogInput2.Name = "lblLogInput2";
-            this.lblLogInput2.Size = new System.Drawing.Size(30, 39);
+            this.lblLogInput2.Size = new System.Drawing.Size(39, 52);
             this.lblLogInput2.TabIndex = 6;
             this.lblLogInput2.Text = "-";
             // 
@@ -126,28 +133,32 @@
             // 
             this.lblLogInput3.AutoSize = true;
             this.lblLogInput3.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogInput3.Location = new System.Drawing.Point(406, 67);
+            this.lblLogInput3.Location = new System.Drawing.Point(541, 82);
+            this.lblLogInput3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLogInput3.Name = "lblLogInput3";
-            this.lblLogInput3.Size = new System.Drawing.Size(30, 39);
+            this.lblLogInput3.Size = new System.Drawing.Size(39, 52);
             this.lblLogInput3.TabIndex = 7;
             this.lblLogInput3.Text = "-";
+            this.lblLogInput3.Click += new System.EventHandler(this.lblLogInput3_Click);
             // 
             // lblLogInput4
             // 
             this.lblLogInput4.AutoSize = true;
             this.lblLogInput4.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogInput4.Location = new System.Drawing.Point(449, 67);
+            this.lblLogInput4.Location = new System.Drawing.Point(599, 82);
+            this.lblLogInput4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLogInput4.Name = "lblLogInput4";
-            this.lblLogInput4.Size = new System.Drawing.Size(30, 39);
+            this.lblLogInput4.Size = new System.Drawing.Size(39, 52);
             this.lblLogInput4.TabIndex = 8;
             this.lblLogInput4.Text = "-";
             // 
             // num6But
             // 
             this.num6But.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.num6But.Location = new System.Drawing.Point(438, 202);
+            this.num6But.Location = new System.Drawing.Point(584, 249);
+            this.num6But.Margin = new System.Windows.Forms.Padding(4);
             this.num6But.Name = "num6But";
-            this.num6But.Size = new System.Drawing.Size(53, 53);
+            this.num6But.Size = new System.Drawing.Size(71, 65);
             this.num6But.TabIndex = 9;
             this.num6But.Text = "6";
             this.num6But.UseVisualStyleBackColor = true;
@@ -156,9 +167,10 @@
             // num7But
             // 
             this.num7But.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.num7But.Location = new System.Drawing.Point(302, 270);
+            this.num7But.Location = new System.Drawing.Point(403, 332);
+            this.num7But.Margin = new System.Windows.Forms.Padding(4);
             this.num7But.Name = "num7But";
-            this.num7But.Size = new System.Drawing.Size(53, 53);
+            this.num7But.Size = new System.Drawing.Size(71, 65);
             this.num7But.TabIndex = 10;
             this.num7But.Text = "7";
             this.num7But.UseVisualStyleBackColor = true;
@@ -167,9 +179,10 @@
             // num8But
             // 
             this.num8But.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.num8But.Location = new System.Drawing.Point(370, 270);
+            this.num8But.Location = new System.Drawing.Point(493, 332);
+            this.num8But.Margin = new System.Windows.Forms.Padding(4);
             this.num8But.Name = "num8But";
-            this.num8But.Size = new System.Drawing.Size(53, 53);
+            this.num8But.Size = new System.Drawing.Size(71, 65);
             this.num8But.TabIndex = 11;
             this.num8But.Text = "8";
             this.num8But.UseVisualStyleBackColor = true;
@@ -178,9 +191,10 @@
             // num9But
             // 
             this.num9But.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.num9But.Location = new System.Drawing.Point(438, 270);
+            this.num9But.Location = new System.Drawing.Point(584, 332);
+            this.num9But.Margin = new System.Windows.Forms.Padding(4);
             this.num9But.Name = "num9But";
-            this.num9But.Size = new System.Drawing.Size(53, 53);
+            this.num9But.Size = new System.Drawing.Size(71, 65);
             this.num9But.TabIndex = 12;
             this.num9But.Text = "9";
             this.num9But.UseVisualStyleBackColor = true;
@@ -189,9 +203,10 @@
             // num0But
             // 
             this.num0But.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.num0But.Location = new System.Drawing.Point(370, 338);
+            this.num0But.Location = new System.Drawing.Point(493, 416);
+            this.num0But.Margin = new System.Windows.Forms.Padding(4);
             this.num0But.Name = "num0But";
-            this.num0But.Size = new System.Drawing.Size(53, 53);
+            this.num0But.Size = new System.Drawing.Size(71, 65);
             this.num0But.TabIndex = 13;
             this.num0But.Text = "0";
             this.num0But.UseVisualStyleBackColor = true;
@@ -200,9 +215,10 @@
             // btnBackspace
             // 
             this.btnBackspace.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBackspace.Location = new System.Drawing.Point(438, 338);
+            this.btnBackspace.Location = new System.Drawing.Point(584, 416);
+            this.btnBackspace.Margin = new System.Windows.Forms.Padding(4);
             this.btnBackspace.Name = "btnBackspace";
-            this.btnBackspace.Size = new System.Drawing.Size(53, 53);
+            this.btnBackspace.Size = new System.Drawing.Size(71, 65);
             this.btnBackspace.TabIndex = 14;
             this.btnBackspace.Text = "<";
             this.btnBackspace.UseVisualStyleBackColor = true;
@@ -211,9 +227,10 @@
             // btnEnter
             // 
             this.btnEnter.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEnter.Location = new System.Drawing.Point(302, 338);
+            this.btnEnter.Location = new System.Drawing.Point(403, 416);
+            this.btnEnter.Margin = new System.Windows.Forms.Padding(4);
             this.btnEnter.Name = "btnEnter";
-            this.btnEnter.Size = new System.Drawing.Size(53, 53);
+            this.btnEnter.Size = new System.Drawing.Size(71, 65);
             this.btnEnter.TabIndex = 15;
             this.btnEnter.Text = "E";
             this.btnEnter.UseVisualStyleBackColor = true;
@@ -221,10 +238,10 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.ClientSize = new System.Drawing.Size(810, 454);
+            this.ClientSize = new System.Drawing.Size(1080, 559);
             this.Controls.Add(this.lblLogInput1);
             this.Controls.Add(this.btnEnter);
             this.Controls.Add(this.btnBackspace);
@@ -241,6 +258,7 @@
             this.Controls.Add(this.num3But);
             this.Controls.Add(this.num2But);
             this.Controls.Add(this.num1But);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Red-E";
             this.ResumeLayout(false);
@@ -256,7 +274,6 @@
         private System.Windows.Forms.Button num3But;
         private System.Windows.Forms.Button num4But;
         private System.Windows.Forms.Button num5But;
-        private System.Windows.Forms.Label lblLogInput2;
         private System.Windows.Forms.Label lblLogInput3;
         private System.Windows.Forms.Label lblLogInput4;
         private System.Windows.Forms.Button num6But;
@@ -266,6 +283,7 @@
         private System.Windows.Forms.Button num0But;
         private System.Windows.Forms.Button btnBackspace;
         private System.Windows.Forms.Button btnEnter;
+        private System.Windows.Forms.Label lblLogInput2;
     }
 }
 

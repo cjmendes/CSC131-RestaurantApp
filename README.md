@@ -1,14 +1,5 @@
 # README #
 
-setup.txt
-0,1,2,24,26,0,255,0,1,60,60
-1,2,2,184,26,0,255,0,2,60,60
-2,3,2,341,26,0,255,0,3,60,60
-
-employees.txt
-2222,Chris,Mendes,false
-1111,Derek,Bohnet,false
-
 This README would normally document whatever steps are necessary to get your application up and running.
 
 ### What is this repository for? ###

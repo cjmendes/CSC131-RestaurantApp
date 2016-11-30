@@ -19,7 +19,7 @@ namespace RestaurantAuto
         public ReservationInfoForm(int tableNum, string reservationName, string reservationTime)
         {
             InitializeComponent();
-            lblTableNum.Text = "Table #" + (tableNum + 1);
+            lblTableNum.Text = "Table #" + tableNum;
             lblReservationName.Text = "Name: " + reservationName;
             lblReservationTime.Text = "Time: " + reservationTime;
         }

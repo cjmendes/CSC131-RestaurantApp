@@ -13,12 +13,24 @@ namespace RestaurantAuto
     public partial class Form1 : Form
     {
         int[] logIn = Enumerable.Repeat(-1, 4).ToArray();
-        string logInPassword = "1234";
         int logInPosition = 0;
+        string[] lines;
+        Waiter[] waiters;
 
+        // When started, it reads the employees file into an array, and creates an array of Waiters and
+        // populates it from the file
         public Form1()
         {
             InitializeComponent();
+            lines = System.IO.File.ReadAllLines(@"C:\Users\Chris\Desktop\employees.txt");
+            waiters = new Waiter[lines.Length];
+            int i = 0;
+            foreach (string line in lines)
+            {
+                string[] words = line.Split(',');
+                waiters[i] = new Waiter(words[0], words[1], words[2], bool.Parse(words[3]));
+                i++;
+            }
         }
 
         /********************************************
@@ -181,16 +193,19 @@ namespace RestaurantAuto
         private void checkPassword()
         {
             string tempPass = "" + logIn[0] + logIn[1] + logIn[2] + logIn[3];
-            if (logInPassword == tempPass)
+            for (int i = 0; i < waiters.Length; i++)
             {
-                clearLogIn();
-                MainScreen msForm = new MainScreen();
-                msForm.Tag = this;
-                msForm.Show(this);
-                Hide();    
+                if (tempPass == waiters[i].getWaiterID())
+                {
+                    waiters[i].changeStatus();
+                    clearLogIn();
+                    MainScreen msForm = new MainScreen(waiters);
+                    msForm.Tag = this;
+                    msForm.Show(this);
+                    Hide();
+                }
             }
-            else
-                clearLogIn();
+            clearLogIn();
         }
 
         // Refreshes the labels with what is in place.
@@ -218,9 +233,5 @@ namespace RestaurantAuto
                 lblLogInput4.Text = "" + logIn[3];
         }
 
-        private void lblLogInput3_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

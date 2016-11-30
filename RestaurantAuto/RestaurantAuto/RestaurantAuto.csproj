@@ -44,7 +44,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="AssignWaiter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AssignWaiter.Designer.cs">
+      <DependentUpon>AssignWaiter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Waiter.cs" />
+    <Compile Include="TableClass.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +84,9 @@
     <Compile Include="TableOptions.Designer.cs">
       <DependentUpon>TableOptions.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AssignWaiter.resx">
+      <DependentUpon>AssignWaiter.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -102,6 +112,7 @@
       <DependentUpon>TableOptions.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

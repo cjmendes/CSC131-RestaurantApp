@@ -16,12 +16,15 @@ namespace RestaurantAuto
         string tableAval;
         string name;
         string time;
+        string waiterID = "";
+        Waiter[] waiters;
 
         // Form must be given the status of the table and the table number. If availability is 'Empty',
         // Vacate button is disabled. If availability is 'Occupied', Assign and Reserve buttons are disabled.
-        public TableOptions(string availability, int tableNum)
+        public TableOptions(string availability, int tableNum, Waiter[] waiters, Table[] tables)
         {
             InitializeComponent();
+            this.waiters = waiters;
             if(availability == "Empty")
             {
                 btnVacate.Enabled = false;
@@ -30,8 +33,17 @@ namespace RestaurantAuto
             {
                 btnAssign.Enabled = false;
                 btnReserve.Enabled = false;
+                foreach (Waiter w in waiters)
+                {
+                    if (w.getWaiterID() == tables[tableNum - 1].getWaiterID())
+                    {
+                        lblWaiter.Text = "Waiter/Waitress: " + w.getName(w.getWaiterID());
+                    }
+                }
+                
             }
             tableNumGlobal = tableNum - 1;
+            tableAval = availability;
         }
 
         /********************************************
@@ -41,7 +53,9 @@ namespace RestaurantAuto
         // If clicked, tableAval is changed to 'Occupied' and the form is closed
         private void btnAssign_Click(object sender, EventArgs e)
         {
-            // TODO: Open new form with list of employees to choose from
+            AssignWaiter assWait = new AssignWaiter(waiters);
+            assWait.ShowDialog();
+            waiterID = assWait.getWaiterID();
             tableAval = "Occupied";
             Close();
         }
@@ -96,6 +110,11 @@ namespace RestaurantAuto
         public String getTime()
         {
             return time;
+        }
+        // Returns the waiter ID
+        public String getWaiterID()
+        {
+            return waiterID;
         }
     }
 }

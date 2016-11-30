@@ -32,6 +32,7 @@
             this.btnReserve = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnVacate = new System.Windows.Forms.Button();
+            this.lblWaiter = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnAssign
@@ -74,11 +75,21 @@
             this.btnVacate.UseVisualStyleBackColor = true;
             this.btnVacate.Click += new System.EventHandler(this.btnVacate_Click);
             // 
+            // lblWaiter
+            // 
+            this.lblWaiter.AutoSize = true;
+            this.lblWaiter.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.lblWaiter.Location = new System.Drawing.Point(154, 112);
+            this.lblWaiter.Name = "lblWaiter";
+            this.lblWaiter.Size = new System.Drawing.Size(0, 13);
+            this.lblWaiter.TabIndex = 5;
+            // 
             // TableOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(355, 120);
+            this.ClientSize = new System.Drawing.Size(355, 134);
+            this.Controls.Add(this.lblWaiter);
             this.Controls.Add(this.btnVacate);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnReserve);
@@ -86,6 +97,7 @@
             this.Name = "TableOptions";
             this.Text = "TableOptions";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -95,5 +107,6 @@
         private System.Windows.Forms.Button btnReserve;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnVacate;
+        private System.Windows.Forms.Label lblWaiter;
     }
 }

@@ -17,11 +17,20 @@ namespace RestaurantAuto
         public string[] tableStatus = Enumerable.Repeat("Empty", 20).ToArray();
         string[,] reservationList = new string[20, 2];
         int timeout = 0;
+        Table[] table;
+        string[] lines;
+        private Waiter[] waiters;
 
-        public MainScreen()
+        // Must be passed an array of Waiters. Starts the form, read the table setup file into an array
+        // creates the tables and then adds the waiters to the list box
+        public MainScreen(Waiter[] waiters)
         {
             InitializeComponent();
-            btnTable1.BackColor = Color.FromArgb(0, 255, 0);
+            lines = System.IO.File.ReadAllLines(@"C:\Users\Chris\Desktop\setup.txt");
+            createTables();
+            this.waiters = waiters;
+            addWaiters(waiters);
+
         }
 
         /********************************************
@@ -36,35 +45,57 @@ namespace RestaurantAuto
             Close();
         }
 
-        private void btnTable1_Click(object sender, EventArgs e)
+        // Everytime any table is clicked, it calls this function. If the table is 'Reserved' it calls the
+        // 'ReservationInfoForm'. If the reservation is cancelled, then the reservation is cleared from the array.
+        // If it is not 'Reserved' then it calls 'TableOptions' where table can be Assigned, Vacated
+        // or Reserved. At the end, it checks what the status of the table is and is changed to 
+        // the appropriate color
+        void btnTable_Click(object sender, EventArgs e)
         {
-            /*
-             * IMPORTANT,THIS CODE WILL BE USED FOR EVERY TABLE! 
-             */
             timeout = 0;
-            if (tableStatus[0] == "Reserved")
+            var button = sender as Button;
+            if (button != null)
             {
-                ReservationInfoForm info = new ReservationInfoForm(0, reservationList[0, 0], reservationList[0, 1]);
-                info.ShowDialog();
-                tableStatus[0] = info.getStatus();
-                if (tableStatus[0] == "Empty")
+                if (table[Int32.Parse(button.Text) - 1].getStatus() == "Reserved")
                 {
-                    reservationList[0, 0] = "";
-                    reservationList[0, 1] = "";
+                    ReservationInfoForm info =
+                        new ReservationInfoForm(table[Int32.Parse(button.Text) - 1].getTableNum(),
+                        reservationList[Int32.Parse(button.Text) - 1, 0], reservationList[Int32.Parse(button.Text) - 1, 1]);
+                    info.ShowDialog();
+                    table[Int32.Parse(button.Text) - 1].setStatus(info.getStatus());
+                    if (table[Int32.Parse(button.Text) - 1].getStatus() == "Empty")
+                    {
+                        reservationList[Int32.Parse(button.Text) - 1, 0] = "";
+                        reservationList[Int32.Parse(button.Text) - 1, 1] = "";
+                    }
+                }
+                else
+                {
+                    TableOptions tabOpt = new TableOptions(table[Int32.Parse(button.Text) - 1].getStatus(),
+                        table[Int32.Parse(button.Text) - 1].getTableNum(), waiters, table);
+                    tabOpt.ShowDialog();
+                    table[Int32.Parse(button.Text) - 1].setStatus(tabOpt.getStatus());
+                    if (table[Int32.Parse(button.Text) - 1].getStatus() == "Reserved")
+                    {
+                        reservationList[Int32.Parse(button.Text) - 1, 0] = tabOpt.getName();
+                        reservationList[Int32.Parse(button.Text) - 1, 1] = tabOpt.getTime();
+                        button.BackColor = Color.FromArgb(128, 128, 128);
+                    }
+                    else if (table[Int32.Parse(button.Text) - 1].getStatus() == "Occupied")
+                    {
+                        table[Int32.Parse(button.Text) - 1].setWaiterID(tabOpt.getWaiterID());
+                    }
+                }
+
+                if (table[Int32.Parse(button.Text) - 1].getStatus() == "Empty")
+                {
+                    button.BackColor = Color.FromArgb(0, 255, 0);
+                }
+                else if (table[Int32.Parse(button.Text) - 1].getStatus() == "Occupied")
+                {
+                    button.BackColor = Color.FromArgb(255, 0, 0);
                 }
             }
-            else
-            {
-                TableOptions tabOpt = new TableOptions(tableStatus[0], 1);
-                tabOpt.ShowDialog();
-                tableStatus[0] = tabOpt.getStatus();
-                if (tableStatus[0] == "Reserved")
-                {
-                    reservationList[0, 0] = tabOpt.getName();
-                    reservationList[0, 1] = tabOpt.getTime();
-                }
-            }
-            changeTableColor(0);
         }
 
         /********************************************
@@ -90,20 +121,45 @@ namespace RestaurantAuto
             }
         }
 
-        public void changeTableColor(int position)
+        /********************************************
+         ***              FUNCTION                ***
+         ********************************************/
+
+        // This creates all the tables and the buttons for the tables. It reads all the values from the setup array
+        // and the creates a new Table class and a button for that table
+        public void createTables()
+        {            
+            table = new Table[lines.Length];
+
+            foreach (string line in lines)
+            {
+                string[] words = line.Split(',');
+                table[Int32.Parse(words[0])] = new Table(Int32.Parse(words[1]), Int32.Parse(words[2]));
+
+                var button = new Button();
+                button.Location = new Point(Int32.Parse(words[3]), Int32.Parse(words[4]));
+                button.BackColor = Color.FromArgb(Int32.Parse(words[5]), Int32.Parse(words[6]), Int32.Parse(words[7]));
+                button.Text = words[8];
+                button.Size = new Size(Int32.Parse(words[9]), Int32.Parse(words[10]));
+                button.Name = string.Format("btnTable_{0}", words[1]);              
+                button.Click += btnTable_Click;
+                this.Controls.Add(button);
+            }
+
+        }
+
+        // Receives an array of Waiters and gets each of the waiter's first and last name who are logged in
+        // and populates the list box with them
+        public void addWaiters(Waiter[] waiters)
         {
-            if (tableStatus[position] == "Empty")
+            List<string> _items = new List<string>();
+            for (int i = 0; i < waiters.Length; i++)
             {
-                btnTable1.BackColor = Color.FromArgb(0, 255, 0);
+                if (waiters[i].getStatus() == true)
+                    _items.Add(waiters[i].getFirstName() + ' ' + waiters[i].getLastName());
             }
-            else if (tableStatus[position] == "Occupied")
-            {
-                btnTable1.BackColor = Color.FromArgb(255, 0, 0);
-            }
-            else if (tableStatus[position] == "Reserved")
-            {
-                btnTable1.BackColor = Color.FromArgb(128, 128, 128);
-            }
+            listWaiters.DataSource = null;
+            listWaiters.DataSource = _items;
         }
     }
 }

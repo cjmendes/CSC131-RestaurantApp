@@ -37,9 +37,9 @@
             // 
             // btnAssign
             // 
-            this.btnAssign.Location = new System.Drawing.Point(22, 32);
+            this.btnAssign.Location = new System.Drawing.Point(12, 32);
             this.btnAssign.Name = "btnAssign";
-            this.btnAssign.Size = new System.Drawing.Size(67, 57);
+            this.btnAssign.Size = new System.Drawing.Size(70, 70);
             this.btnAssign.TabIndex = 0;
             this.btnAssign.Text = "Assign";
             this.btnAssign.UseVisualStyleBackColor = true;
@@ -47,9 +47,9 @@
             // 
             // btnReserve
             // 
-            this.btnReserve.Location = new System.Drawing.Point(185, 33);
+            this.btnReserve.Location = new System.Drawing.Point(184, 32);
             this.btnReserve.Name = "btnReserve";
-            this.btnReserve.Size = new System.Drawing.Size(56, 54);
+            this.btnReserve.Size = new System.Drawing.Size(70, 70);
             this.btnReserve.TabIndex = 2;
             this.btnReserve.Text = "Reserve";
             this.btnReserve.UseVisualStyleBackColor = true;
@@ -57,9 +57,9 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(264, 36);
+            this.btnCancel.Location = new System.Drawing.Point(273, 32);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(61, 51);
+            this.btnCancel.Size = new System.Drawing.Size(70, 70);
             this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -67,9 +67,9 @@
             // 
             // btnVacate
             // 
-            this.btnVacate.Location = new System.Drawing.Point(106, 36);
+            this.btnVacate.Location = new System.Drawing.Point(97, 32);
             this.btnVacate.Name = "btnVacate";
-            this.btnVacate.Size = new System.Drawing.Size(60, 50);
+            this.btnVacate.Size = new System.Drawing.Size(70, 70);
             this.btnVacate.TabIndex = 4;
             this.btnVacate.Text = "Vacate";
             this.btnVacate.UseVisualStyleBackColor = true;
@@ -89,6 +89,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(355, 134);
+            this.ControlBox = false;
             this.Controls.Add(this.lblWaiter);
             this.Controls.Add(this.btnVacate);
             this.Controls.Add(this.btnCancel);

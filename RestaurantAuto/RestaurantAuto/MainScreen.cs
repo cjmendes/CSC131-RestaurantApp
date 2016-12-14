@@ -12,23 +12,32 @@ using System.Windows.Forms;
 
 namespace RestaurantAuto
 {
+    /// <summary>
+    /// Creates new MainScreen form.
+    /// </summary>
+    /// <seealso cref="System.Windows.Forms.Form" />
     public partial class MainScreen : Form
     {
-        public string[] tableStatus = Enumerable.Repeat("Empty", 20).ToArray();
         string[,] reservationList = new string[20, 2];
-        int timeout = 0;
         Table[] table;
         string[] lines;
+        bool admin = false;
         private Waiter[] waiters;
+        //int timeout = 0;
 
-        // Must be passed an array of Waiters. Starts the form, read the table setup file into an array
-        // creates the tables and then adds the waiters to the list box
-        public MainScreen(Waiter[] waiters)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MainScreen"/> class.
+        /// </summary>
+        /// <param name="waiters">The list of waiters.</param>
+        /// <param name="admin">if set to <c>true</c> [admin].</param>
+        public MainScreen(Waiter[] waiters, bool admin)
         {
             InitializeComponent();
-            lines = System.IO.File.ReadAllLines(@"C:\Users\Chris\Desktop\setup.txt");
+            this.CenterToScreen();
+            lines = System.IO.File.ReadAllLines(@"C:\Red-E\setup.txt");
             createTables();
             this.waiters = waiters;
+            this.admin = admin;
             addWaiters(waiters);
 
         }
@@ -40,9 +49,18 @@ namespace RestaurantAuto
         // If Log Out button clicked, close this form and opens Form1
         private void btnLogOut_Click(object sender, EventArgs e)
         {
-            var form1 = (Form1)Tag;
-            form1.Show();
-            Close();
+            if (admin == true)
+            {
+                var options = (Options)Tag;
+                options.Show();
+                Hide();
+            }
+            else
+            {
+                var form1 = (LogIn)Tag;
+                form1.Show();
+                Hide();
+            }
         }
 
         // Everytime any table is clicked, it calls this function. If the table is 'Reserved' it calls the
@@ -52,7 +70,7 @@ namespace RestaurantAuto
         // the appropriate color
         void btnTable_Click(object sender, EventArgs e)
         {
-            timeout = 0;
+            //timeout = 0;
             var button = sender as Button;
             if (button != null)
             {
@@ -61,7 +79,8 @@ namespace RestaurantAuto
                     ReservationInfoForm info =
                         new ReservationInfoForm(table[Int32.Parse(button.Text) - 1].getTableNum(),
                         reservationList[Int32.Parse(button.Text) - 1, 0], reservationList[Int32.Parse(button.Text) - 1, 1]);
-                    info.ShowDialog();
+                    info.StartPosition = FormStartPosition.CenterParent;
+                    info.ShowDialog(this);
                     table[Int32.Parse(button.Text) - 1].setStatus(info.getStatus());
                     if (table[Int32.Parse(button.Text) - 1].getStatus() == "Empty")
                     {
@@ -73,13 +92,35 @@ namespace RestaurantAuto
                 {
                     TableOptions tabOpt = new TableOptions(table[Int32.Parse(button.Text) - 1].getStatus(),
                         table[Int32.Parse(button.Text) - 1].getTableNum(), waiters, table);
-                    tabOpt.ShowDialog();
+                    tabOpt.StartPosition = FormStartPosition.CenterParent;
+                    tabOpt.ShowDialog(this);
                     table[Int32.Parse(button.Text) - 1].setStatus(tabOpt.getStatus());
                     if (table[Int32.Parse(button.Text) - 1].getStatus() == "Reserved")
                     {
                         reservationList[Int32.Parse(button.Text) - 1, 0] = tabOpt.getName();
                         reservationList[Int32.Parse(button.Text) - 1, 1] = tabOpt.getTime();
-                        button.BackColor = Color.FromArgb(128, 128, 128);
+
+                        if (table[Int32.Parse(button.Text) - 1].getTableCapacity() == 2)
+                        {
+                            if (table[Int32.Parse(button.Text) - 1].getRotation() == "normal")
+                                button.BackgroundImage = RestaurantAuto.Properties.Resources.table_2_res;
+                            else
+                                button.BackgroundImage = RestaurantAuto.Properties.Resources.table_2_res_rev;
+                        }
+                        else if (table[Int32.Parse(button.Text) - 1].getTableCapacity() == 4)
+                        {
+                            if (table[Int32.Parse(button.Text) - 1].getRotation() == "normal")
+                                button.BackgroundImage = RestaurantAuto.Properties.Resources.table_4_res;
+                            else
+                                button.BackgroundImage = RestaurantAuto.Properties.Resources.table_4_res_rev;
+                        }
+                        else if (table[Int32.Parse(button.Text) - 1].getTableCapacity() == 8)
+                        {
+                            if (table[Int32.Parse(button.Text) - 1].getRotation() == "normal")
+                                button.BackgroundImage = RestaurantAuto.Properties.Resources.table_8_res;
+                            else
+                                button.BackgroundImage = RestaurantAuto.Properties.Resources.table_8_res_rev;
+                        }
                     }
                     else if (table[Int32.Parse(button.Text) - 1].getStatus() == "Occupied")
                     {
@@ -89,11 +130,52 @@ namespace RestaurantAuto
 
                 if (table[Int32.Parse(button.Text) - 1].getStatus() == "Empty")
                 {
-                    button.BackColor = Color.FromArgb(0, 255, 0);
+                    if (table[Int32.Parse(button.Text) - 1].getTableCapacity() == 2)
+                    {
+                        if (table[Int32.Parse(button.Text) - 1].getRotation() == "normal")
+                            button.BackgroundImage = RestaurantAuto.Properties.Resources.table_2_avl;
+                        else
+                            button.BackgroundImage = RestaurantAuto.Properties.Resources.table_2_avl_rev;
+                    }
+                    else if (table[Int32.Parse(button.Text) - 1].getTableCapacity() == 4)
+                    {
+                        if (table[Int32.Parse(button.Text) - 1].getRotation() == "normal")
+                            button.BackgroundImage = RestaurantAuto.Properties.Resources.table_4_avl;
+                        else
+                            button.BackgroundImage = RestaurantAuto.Properties.Resources.table_4_avl_rev;
+                    }
+                    else if (table[Int32.Parse(button.Text) - 1].getTableCapacity() == 8)
+                    {
+                        if (table[Int32.Parse(button.Text) - 1].getRotation() == "normal")
+                            button.BackgroundImage = RestaurantAuto.Properties.Resources.table_8_avl;
+                        else
+                            button.BackgroundImage = RestaurantAuto.Properties.Resources.table_8_avl_rev;
+                    }
                 }
                 else if (table[Int32.Parse(button.Text) - 1].getStatus() == "Occupied")
                 {
-                    button.BackColor = Color.FromArgb(255, 0, 0);
+                    if (table[Int32.Parse(button.Text) - 1].getTableCapacity() == 2)
+                    {
+                        if (table[Int32.Parse(button.Text) - 1].getRotation() == "normal")
+                            button.BackgroundImage = RestaurantAuto.Properties.Resources.table_2_occ;
+                        else
+                            button.BackgroundImage = RestaurantAuto.Properties.Resources.table_2_occ_rev;
+                    }
+                    else if (table[Int32.Parse(button.Text) - 1].getTableCapacity() == 4)
+                    {
+                        if (table[Int32.Parse(button.Text) - 1].getRotation() == "normal")
+                            button.BackgroundImage = RestaurantAuto.Properties.Resources.table_4_occ;
+                        else
+                            button.BackgroundImage = RestaurantAuto.Properties.Resources.table_4_occ_rev;
+                    }
+                    else if (table[Int32.Parse(button.Text) - 1].getTableCapacity() == 8)
+                    {
+                        if (table[Int32.Parse(button.Text) - 1].getRotation() == "normal")
+                            button.BackgroundImage = RestaurantAuto.Properties.Resources.table_8_occ;
+                        else
+                            button.BackgroundImage = RestaurantAuto.Properties.Resources.table_8_occ_rev;
+                    }
+
                 }
             }
         }
@@ -112,21 +194,23 @@ namespace RestaurantAuto
         // and brings Form1 form back
         private void tmrTimeout_Tick(object sender, EventArgs e)
         {
-            timeout++;
+            /*timeout++;
             if (timeout >= 60)
             {
                 var form1 = (Form1)Tag;
                 form1.Show();
                 Close();
-            }
+            }*/
         }
 
         /********************************************
          ***              FUNCTION                ***
          ********************************************/
 
-        // This creates all the tables and the buttons for the tables. It reads all the values from the setup array
-        // and the creates a new Table class and a button for that table
+        /// <summary>
+        /// Creates all the tables and the buttons for the tables. It reads all the values from the setup array
+        /// and the creates a new Table class and a button for that table.
+        /// </summary>
         public void createTables()
         {            
             table = new Table[lines.Length];
@@ -134,13 +218,37 @@ namespace RestaurantAuto
             foreach (string line in lines)
             {
                 string[] words = line.Split(',');
-                table[Int32.Parse(words[0])] = new Table(Int32.Parse(words[1]), Int32.Parse(words[2]));
+                table[Int32.Parse(words[0])] = new Table(Int32.Parse(words[1]), Int32.Parse(words[2]), words[7]);
 
                 var button = new Button();
                 button.Location = new Point(Int32.Parse(words[3]), Int32.Parse(words[4]));
-                button.BackColor = Color.FromArgb(Int32.Parse(words[5]), Int32.Parse(words[6]), Int32.Parse(words[7]));
-                button.Text = words[8];
-                button.Size = new Size(Int32.Parse(words[9]), Int32.Parse(words[10]));
+                if (words[2] == "2")
+                {
+                    if (words[7] == "normal")
+                        button.BackgroundImage = RestaurantAuto.Properties.Resources.table_2_avl;
+                    else
+                        button.BackgroundImage = RestaurantAuto.Properties.Resources.table_2_avl_rev;
+                }
+                else if (words[2] == "4")
+                {
+                    if (words[7] == "normal")
+                        button.BackgroundImage = RestaurantAuto.Properties.Resources.table_4_avl;
+                    else
+                        button.BackgroundImage = RestaurantAuto.Properties.Resources.table_4_avl_rev;
+                }
+                else if (words[2] == "8")
+                {
+                    if (words[7] == "normal")
+                        button.BackgroundImage = RestaurantAuto.Properties.Resources.table_8_avl;
+                    else
+                        button.BackgroundImage = RestaurantAuto.Properties.Resources.table_8_avl_rev;
+                }
+                button.BackgroundImageLayout = ImageLayout.Zoom;
+                button.TabStop = false;
+                button.FlatStyle = FlatStyle.Flat;
+                button.FlatAppearance.BorderSize = 0;
+                button.Text = words[1];
+                button.Size = new Size(Int32.Parse(words[5]), Int32.Parse(words[6]));
                 button.Name = string.Format("btnTable_{0}", words[1]);              
                 button.Click += btnTable_Click;
                 this.Controls.Add(button);
@@ -148,14 +256,16 @@ namespace RestaurantAuto
 
         }
 
-        // Receives an array of Waiters and gets each of the waiter's first and last name who are logged in
-        // and populates the list box with them
+        /// <summary>
+        /// Gets each of the waiter's first and last name who are logged in and populates the list box with them.
+        /// </summary>
+        /// <param name="waiters">The list of waiters.</param>
         public void addWaiters(Waiter[] waiters)
         {
             List<string> _items = new List<string>();
             for (int i = 0; i < waiters.Length; i++)
             {
-                if (waiters[i].getStatus() == true)
+                if (waiters[i] != null && waiters[i].getStatus() == true)
                     _items.Add(waiters[i].getFirstName() + ' ' + waiters[i].getLastName());
             }
             listWaiters.DataSource = null;

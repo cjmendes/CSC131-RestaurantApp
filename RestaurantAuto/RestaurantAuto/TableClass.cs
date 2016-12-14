@@ -6,45 +6,64 @@ using System.Threading.Tasks;
 
 namespace RestaurantAuto
 {
+    /// <summary>
+    /// Creates instance of a Table.
+    /// </summary>
     public partial class Table
     {
-        /// <summary>
-        ///CLASS VARIABLES
-        /// </summary>
+
         private int id;             //table id
         private int capacity;       //amount of chairs
         private string status;      //status of string (can only be "Empty", "Occupied", "Reserved")   
         private string waiterID;    //waiter assigned for that table
+        private string rotation;
 
         /********************************************
          ***            CONSTRUCTORS              ***
          ********************************************/
 
-        // Empty constructor
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Table"/> class.
+        /// </summary>
         public Table()      
         {
             id = 0;
             capacity = 0;
             status = "Empty";
             waiterID = "0";
+            rotation = "normal";
         }
 
-        // Initial constructor for initializing at the begining of the day
-        public Table(int id, int capacity)      
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Table"/> class.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <param name="capacity">The capacity.</param>
+        /// <param name="rotation">The rotation.</param>
+        public Table(int id, int capacity, string rotation)      
         {
             this.id = id; 
             this.capacity = capacity;
             status = "Empty";
             waiterID = "0";
+            this.rotation = rotation;
         }
 
-        // Contructor for intializing after system shutdown from some file
-        public Table(int id, int capacity, string status, string waiterID )
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Table"/> class.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <param name="capacity">The capacity.</param>
+        /// <param name="status">The status.</param>
+        /// <param name="waiterID">The waiter identifier.</param>
+        /// <param name="rotation">The rotation.</param>
+        public Table(int id, int capacity, string status, string waiterID, string rotation)
         {
-            id = 0;
-            capacity = 0;
+            this.id = id;
+            this.capacity = capacity;
             this.status = status;
             this.waiterID = waiterID;
+            this.rotation = rotation;
         }
 
         /********************************************
@@ -53,42 +72,78 @@ namespace RestaurantAuto
 
         //////////    SET FUNCTIONS    //////////
 
-        // Changes the number of chairs
-        public void setCapacity (int n)
+        /// <summary>
+        /// Sets the capacity.
+        /// </summary>
+        /// <param name="capacity">The capacity.</param>
+        public void setCapacity (int capacity)
         {
-            capacity = n;
+            this.capacity = capacity;
         }
 
-        // Changes the status of the table
-        public void setStatus (string st)   
+        /// <summary>
+        /// Sets the status.
+        /// </summary>
+        /// <param name="status">The status.</param>
+        public void setStatus (string status)   
         {
-            status = st;
+            this.status = status;
         }
 
-        // Changes the waiter ID for the table
-        public void setWaiterID (string i)
+        /// <summary>
+        /// Sets the waiter identifier.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        public void setWaiterID (string id)
         {
-            waiterID = i;
+            waiterID = id;
         }
 
         //////////    GET FUNCTIONS    //////////
 
-        // Returns the table number
+        /// <summary>
+        /// Gets the table number.
+        /// </summary>
+        /// <returns>Returns int of table number.</returns>
         public int getTableNum()
         {
             return id;
         }
 
-        // Returns the table status
+        /// <summary>
+        /// Gets the table capacity.
+        /// </summary>
+        /// <returns>Returns number (int) of table capacity.</returns>
+        public int getTableCapacity()
+        {
+            return capacity;
+        }
+
+        /// <summary>
+        /// Gets the table status.
+        /// </summary>
+        /// <returns>Returns string of table status.</returns>
         public string getStatus()
         {
             return status;
         }
 
-        // Returns the waiter ID
+        /// <summary>
+        /// Gets the waiter identifier.
+        /// </summary>
+        /// <returns>Returns string of waiter ID.</returns>
         public string getWaiterID()
         {
             return waiterID;
+        }
+
+        /// <summary>
+        /// Gets the orientation of table.
+        /// </summary>
+        /// <returns>Returns string of orientation.</returns>
+        public string getRotation()
+        {
+            return rotation;
         }
 
     }

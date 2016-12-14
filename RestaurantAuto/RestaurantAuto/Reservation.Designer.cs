@@ -70,9 +70,9 @@
             // 
             // btnReserve
             // 
-            this.btnReserve.Location = new System.Drawing.Point(36, 124);
+            this.btnReserve.Location = new System.Drawing.Point(12, 124);
             this.btnReserve.Name = "btnReserve";
-            this.btnReserve.Size = new System.Drawing.Size(92, 22);
+            this.btnReserve.Size = new System.Drawing.Size(110, 24);
             this.btnReserve.TabIndex = 4;
             this.btnReserve.Text = "Reserve";
             this.btnReserve.UseVisualStyleBackColor = true;
@@ -80,9 +80,9 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(168, 124);
+            this.btnCancel.Location = new System.Drawing.Point(157, 124);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(90, 21);
+            this.btnCancel.Size = new System.Drawing.Size(110, 24);
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -92,7 +92,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(292, 166);
+            this.ClientSize = new System.Drawing.Size(279, 166);
+            this.ControlBox = false;
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnReserve);
             this.Controls.Add(this.txtTime);

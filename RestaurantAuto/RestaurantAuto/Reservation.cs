@@ -10,14 +10,22 @@ using System.Windows.Forms;
 
 namespace RestaurantAuto
 {
+    /// <summary>
+    /// Creates new Reservation Form.
+    /// </summary>
+    /// <seealso cref="System.Windows.Forms.Form" />
     public partial class Reservation : Form
     {
         string name = "";
         string time = "";
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Reservation"/> class.
+        /// </summary>
         public Reservation()
         {
             InitializeComponent();
+            this.CenterToParent();
         }
 
         /********************************************
@@ -51,14 +59,20 @@ namespace RestaurantAuto
          ***              FUNCTIONS               ***
          ********************************************/
 
-        // Returns the reservation name
-        public String getName()
+        /// <summary>
+        /// Gets the name.
+        /// </summary>
+        /// <returns>Returns string of waiter name.</returns>
+        public string getName()
         {
             return name;
         }
 
-        // Returns the reservation time
-        public String getTime()
+        /// <summary>
+        /// Gets the time.
+        /// </summary>
+        /// <returns>Returns string of time.</returns>
+        public string getTime()
         {
             return time;
         }

@@ -1,6 +1,6 @@
 ﻿namespace RestaurantAuto
 {
-    partial class Form1
+    partial class LogIn
     {
         /// <summary>
         /// Required designer variable.
@@ -44,6 +44,8 @@
             this.btnBackspace = new System.Windows.Forms.Button();
             this.btnEnter = new System.Windows.Forms.Button();
             this.lblLogInput3 = new System.Windows.Forms.Label();
+            this.btnWaiterLogout = new System.Windows.Forms.Button();
+            this.btnShutDown = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // num1But
@@ -53,7 +55,6 @@
             this.num1But.Name = "num1But";
             this.num1But.Size = new System.Drawing.Size(53, 53);
             this.num1But.TabIndex = 0;
-            this.num1But.Text = "1";
             this.num1But.UseVisualStyleBackColor = true;
             this.num1But.Click += new System.EventHandler(this.num1But_Click);
             // 
@@ -64,7 +65,6 @@
             this.num2But.Name = "num2But";
             this.num2But.Size = new System.Drawing.Size(53, 53);
             this.num2But.TabIndex = 1;
-            this.num2But.Text = "2";
             this.num2But.UseVisualStyleBackColor = true;
             this.num2But.Click += new System.EventHandler(this.num2But_Click);
             // 
@@ -86,7 +86,6 @@
             this.num3But.Name = "num3But";
             this.num3But.Size = new System.Drawing.Size(53, 53);
             this.num3But.TabIndex = 3;
-            this.num3But.Text = "3";
             this.num3But.UseVisualStyleBackColor = true;
             this.num3But.Click += new System.EventHandler(this.num3But_Click);
             // 
@@ -97,7 +96,6 @@
             this.num4But.Name = "num4But";
             this.num4But.Size = new System.Drawing.Size(53, 53);
             this.num4But.TabIndex = 4;
-            this.num4But.Text = "4";
             this.num4But.UseVisualStyleBackColor = true;
             this.num4But.Click += new System.EventHandler(this.num4But_Click);
             // 
@@ -108,7 +106,6 @@
             this.num5But.Name = "num5But";
             this.num5But.Size = new System.Drawing.Size(53, 53);
             this.num5But.TabIndex = 5;
-            this.num5But.Text = "5";
             this.num5But.UseVisualStyleBackColor = true;
             this.num5But.Click += new System.EventHandler(this.num5But_Click);
             // 
@@ -139,7 +136,6 @@
             this.num6But.Name = "num6But";
             this.num6But.Size = new System.Drawing.Size(53, 53);
             this.num6But.TabIndex = 9;
-            this.num6But.Text = "6";
             this.num6But.UseVisualStyleBackColor = true;
             this.num6But.Click += new System.EventHandler(this.num6But_Click);
             // 
@@ -150,7 +146,6 @@
             this.num7But.Name = "num7But";
             this.num7But.Size = new System.Drawing.Size(53, 53);
             this.num7But.TabIndex = 10;
-            this.num7But.Text = "7";
             this.num7But.UseVisualStyleBackColor = true;
             this.num7But.Click += new System.EventHandler(this.num7But_Click);
             // 
@@ -161,7 +156,6 @@
             this.num8But.Name = "num8But";
             this.num8But.Size = new System.Drawing.Size(53, 53);
             this.num8But.TabIndex = 11;
-            this.num8But.Text = "8";
             this.num8But.UseVisualStyleBackColor = true;
             this.num8But.Click += new System.EventHandler(this.num8But_Click);
             // 
@@ -172,7 +166,6 @@
             this.num9But.Name = "num9But";
             this.num9But.Size = new System.Drawing.Size(53, 53);
             this.num9But.TabIndex = 12;
-            this.num9But.Text = "9";
             this.num9But.UseVisualStyleBackColor = true;
             this.num9But.Click += new System.EventHandler(this.num9But_Click);
             // 
@@ -183,7 +176,6 @@
             this.num0But.Name = "num0But";
             this.num0But.Size = new System.Drawing.Size(53, 53);
             this.num0But.TabIndex = 13;
-            this.num0But.Text = "0";
             this.num0But.UseVisualStyleBackColor = true;
             this.num0But.Click += new System.EventHandler(this.num0But_Click);
             // 
@@ -194,7 +186,6 @@
             this.btnBackspace.Name = "btnBackspace";
             this.btnBackspace.Size = new System.Drawing.Size(53, 53);
             this.btnBackspace.TabIndex = 14;
-            this.btnBackspace.Text = "<";
             this.btnBackspace.UseVisualStyleBackColor = true;
             this.btnBackspace.Click += new System.EventHandler(this.btnBackspace_Click);
             // 
@@ -205,7 +196,6 @@
             this.btnEnter.Name = "btnEnter";
             this.btnEnter.Size = new System.Drawing.Size(53, 53);
             this.btnEnter.TabIndex = 15;
-            this.btnEnter.Text = "E";
             this.btnEnter.UseVisualStyleBackColor = true;
             this.btnEnter.Click += new System.EventHandler(this.btnEnter_Click);
             // 
@@ -219,12 +209,33 @@
             this.lblLogInput3.TabIndex = 16;
             this.lblLogInput3.Text = "-";
             // 
+            // btnWaiterLogout
+            // 
+            this.btnWaiterLogout.Location = new System.Drawing.Point(37, 367);
+            this.btnWaiterLogout.Name = "btnWaiterLogout";
+            this.btnWaiterLogout.Size = new System.Drawing.Size(113, 51);
+            this.btnWaiterLogout.TabIndex = 17;
+            this.btnWaiterLogout.Text = "Waiter Logout";
+            this.btnWaiterLogout.UseVisualStyleBackColor = true;
+            this.btnWaiterLogout.Click += new System.EventHandler(this.btnWaiterLogout_Click);
+            // 
+            // btnShutDown
+            // 
+            this.btnShutDown.Location = new System.Drawing.Point(654, 338);
+            this.btnShutDown.Name = "btnShutDown";
+            this.btnShutDown.Size = new System.Drawing.Size(79, 79);
+            this.btnShutDown.TabIndex = 18;
+            this.btnShutDown.UseVisualStyleBackColor = true;
+            this.btnShutDown.Click += new System.EventHandler(this.btnShutDown_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(810, 454);
+            this.Controls.Add(this.btnShutDown);
+            this.Controls.Add(this.btnWaiterLogout);
             this.Controls.Add(this.lblLogInput3);
             this.Controls.Add(this.lblLogInput1);
             this.Controls.Add(this.btnEnter);
@@ -267,6 +278,8 @@
         private System.Windows.Forms.Button btnEnter;
         private System.Windows.Forms.Label lblLogInput2;
         private System.Windows.Forms.Label lblLogInput3;
+        private System.Windows.Forms.Button btnWaiterLogout;
+        private System.Windows.Forms.Button btnShutDown;
     }
 }
 

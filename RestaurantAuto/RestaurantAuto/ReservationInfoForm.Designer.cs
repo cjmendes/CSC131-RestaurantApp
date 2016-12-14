@@ -37,9 +37,9 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(26, 192);
+            this.btnOK.Location = new System.Drawing.Point(12, 159);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(102, 20);
+            this.btnOK.Size = new System.Drawing.Size(110, 24);
             this.btnOK.TabIndex = 0;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
@@ -47,9 +47,9 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(158, 191);
+            this.btnCancel.Location = new System.Drawing.Point(153, 159);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(108, 21);
+            this.btnCancel.Size = new System.Drawing.Size(110, 24);
             this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "Cancel Reservation";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -58,7 +58,7 @@
             // lblTableNum
             // 
             this.lblTableNum.AutoSize = true;
-            this.lblTableNum.Location = new System.Drawing.Point(33, 34);
+            this.lblTableNum.Location = new System.Drawing.Point(112, 21);
             this.lblTableNum.Name = "lblTableNum";
             this.lblTableNum.Size = new System.Drawing.Size(44, 13);
             this.lblTableNum.TabIndex = 2;
@@ -67,7 +67,7 @@
             // lblReservationName
             // 
             this.lblReservationName.AutoSize = true;
-            this.lblReservationName.Location = new System.Drawing.Point(33, 72);
+            this.lblReservationName.Location = new System.Drawing.Point(19, 61);
             this.lblReservationName.Name = "lblReservationName";
             this.lblReservationName.Size = new System.Drawing.Size(95, 13);
             this.lblReservationName.TabIndex = 3;
@@ -76,7 +76,7 @@
             // lblReservationTime
             // 
             this.lblReservationTime.AutoSize = true;
-            this.lblReservationTime.Location = new System.Drawing.Point(33, 117);
+            this.lblReservationTime.Location = new System.Drawing.Point(19, 101);
             this.lblReservationTime.Name = "lblReservationTime";
             this.lblReservationTime.Size = new System.Drawing.Size(90, 13);
             this.lblReservationTime.TabIndex = 4;
@@ -86,7 +86,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(294, 225);
+            this.ClientSize = new System.Drawing.Size(275, 195);
             this.ControlBox = false;
             this.Controls.Add(this.lblReservationTime);
             this.Controls.Add(this.lblReservationName);

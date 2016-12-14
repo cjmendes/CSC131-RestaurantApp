@@ -10,15 +10,24 @@ using System.Windows.Forms;
 
 namespace RestaurantAuto
 {
+    /// <summary>
+    /// Creates a ReservationInfoForm form.
+    /// </summary>
+    /// <seealso cref="System.Windows.Forms.Form" />
     public partial class ReservationInfoForm : Form
     {
         string status = "Reserved";
 
-        // Form must be given a table name, the name and the time of the reservation
-        // Initializes all the labels with the information given
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ReservationInfoForm"/> class.
+        /// </summary>
+        /// <param name="tableNum">The table number.</param>
+        /// <param name="reservationName">Name of customer for the reservation.</param>
+        /// <param name="reservationTime">The reservation time.</param>
         public ReservationInfoForm(int tableNum, string reservationName, string reservationTime)
         {
             InitializeComponent();
+            this.CenterToParent();
             lblTableNum.Text = "Table #" + tableNum;
             lblReservationName.Text = "Name: " + reservationName;
             lblReservationTime.Text = "Time: " + reservationTime;
@@ -49,7 +58,10 @@ namespace RestaurantAuto
          ***              FUNCTIONS               ***
          ********************************************/
 
-        // Returns the status string
+        /// <summary>
+        /// Gets the status.
+        /// </summary>
+        /// <returns>Returns string of status.</returns>
         public String getStatus()
         {
             return status;

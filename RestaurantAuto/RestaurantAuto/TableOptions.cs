@@ -10,6 +10,10 @@ using System.Windows.Forms;
 
 namespace RestaurantAuto
 {
+    /// <summary>
+    /// Creates new TableOptions form.
+    /// </summary>
+    /// <seealso cref="System.Windows.Forms.Form" />
     public partial class TableOptions : Form
     {
         int tableNumGlobal = 0;
@@ -21,6 +25,13 @@ namespace RestaurantAuto
 
         // Form must be given the status of the table and the table number. If availability is 'Empty',
         // Vacate button is disabled. If availability is 'Occupied', Assign and Reserve buttons are disabled.
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TableOptions"/> class.
+        /// </summary>
+        /// <param name="availability">The availability.</param>
+        /// <param name="tableNum">The table number.</param>
+        /// <param name="waiters">The waiters.</param>
+        /// <param name="tables">The tables.</param>
         public TableOptions(string availability, int tableNum, Waiter[] waiters, Table[] tables)
         {
             InitializeComponent();
@@ -35,7 +46,7 @@ namespace RestaurantAuto
                 btnReserve.Enabled = false;
                 foreach (Waiter w in waiters)
                 {
-                    if (w.getWaiterID() == tables[tableNum - 1].getWaiterID())
+                    if (w != null && w.getWaiterID() == tables[tableNum - 1].getWaiterID())
                     {
                         lblWaiter.Text = "Waiter/Waitress: " + w.getName(w.getWaiterID());
                     }
@@ -54,9 +65,13 @@ namespace RestaurantAuto
         private void btnAssign_Click(object sender, EventArgs e)
         {
             AssignWaiter assWait = new AssignWaiter(waiters);
-            assWait.ShowDialog();
-            waiterID = assWait.getWaiterID();
-            tableAval = "Occupied";
+            assWait.StartPosition = FormStartPosition.CenterParent;
+            assWait.ShowDialog(this);
+            if (assWait.getWaiterID() != "")
+            {
+                waiterID = assWait.getWaiterID();
+                tableAval = "Occupied";
+            }
             Close();
         }
 
@@ -77,10 +92,14 @@ namespace RestaurantAuto
         private void btnReserve_Click(object sender, EventArgs e)
         {
             Reservation reserve = new Reservation();
-            reserve.ShowDialog();
-            name = reserve.getName();
-            time = reserve.getTime();
-            tableAval = "Reserved";
+            reserve.StartPosition = FormStartPosition.CenterParent;
+            reserve.ShowDialog(this);
+            if (reserve.getName() != "")
+            {
+                name = reserve.getName();
+                time = reserve.getTime();
+                tableAval = "Reserved";
+            }
             Close();
         }
 
@@ -94,25 +113,38 @@ namespace RestaurantAuto
          ***              FUNCTIONS               ***
          ********************************************/
 
-        // Returns the status of the table
-        public String getStatus()
+        /// <summary>
+        /// Gets the status of table.
+        /// </summary>
+        /// <returns>Return string of status of table.</returns>
+        public string getStatus()
         {
             return tableAval;
         }
 
-        // Returns the reservation name
-        public String getName()
+        /// <summary>
+        /// Gets the name.
+        /// </summary>
+        /// <returns>Returns string of name.</returns>
+        public string getName()
         {
             return name;
         }
 
-        // Returns the reservation time
-        public String getTime()
+        /// <summary>
+        /// Gets the time.
+        /// </summary>
+        /// <returns>Returns string of time.</returns>
+        public string getTime()
         {
             return time;
         }
-        // Returns the waiter ID
-        public String getWaiterID()
+
+        /// <summary>
+        /// Gets the waiter identifier.
+        /// </summary>
+        /// <returns>Returns string of ID.</returns>
+        public string getWaiterID()
         {
             return waiterID;
         }

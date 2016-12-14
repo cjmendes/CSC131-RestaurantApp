@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\RestaurantAuto.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -44,19 +45,43 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddWaiterSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddWaiterSettings.Designer.cs">
+      <DependentUpon>AddWaiterSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="AssignWaiter.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AssignWaiter.Designer.cs">
       <DependentUpon>AssignWaiter.cs</DependentUpon>
     </Compile>
-    <Compile Include="Waiter.cs" />
-    <Compile Include="TableClass.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Options.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Options.Designer.cs">
+      <DependentUpon>Options.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RemoveWaiterSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RemoveWaiterSettings.Designer.cs">
+      <DependentUpon>RemoveWaiterSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Waiter.cs" />
+    <Compile Include="TableClass.cs" />
+    <Compile Include="LogIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogIn.Designer.cs">
+      <DependentUpon>LogIn.cs</DependentUpon>
     </Compile>
     <Compile Include="Reservation.cs">
       <SubType>Form</SubType>
@@ -84,14 +109,20 @@
     <Compile Include="TableOptions.Designer.cs">
       <DependentUpon>TableOptions.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddWaiterSettings.resx">
+      <DependentUpon>AddWaiterSettings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AssignWaiter.resx">
       <DependentUpon>AssignWaiter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="LogIn.resx">
+      <DependentUpon>LogIn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainScreen.resx">
       <DependentUpon>MainScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options.resx">
+      <DependentUpon>Options.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -101,18 +132,24 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="RemoveWaiterSettings.resx">
+      <DependentUpon>RemoveWaiterSettings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reservation.resx">
       <DependentUpon>Reservation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReservationInfoForm.resx">
       <DependentUpon>ReservationInfoForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TableOptions.resx">
       <DependentUpon>TableOptions.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
-    <None Include="ClassDiagram2.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -125,6 +162,114 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resouces\table_2_avl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resouces\table_2_avl_rev.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resouces\table_2_occ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resouces\table_2_occ_rev.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resouces\table_2_res.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resouces\table_2_res_rev.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resouces\Table_03.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resouces\table_4_avl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resouces\table_4_avl_rev.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resouces\table_4_occ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resouces\table_4_occ_rev.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resouces\table_4_res.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resouces\table_4_res_rev.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resouces\table_8_avl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resouces\table_8_avl_rev.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resouces\table_8_occ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resouces\table_8_occ_rev.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resouces\table_8_res.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resouces\table_8_res_rev.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resouces\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resouces\backspace.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resouces\enter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resouces\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resouces\num_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resouces\num_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resouces\num_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resouces\num_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resouces\num_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resouces\num_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resouces\num_6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resouces\num_7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resouces\num_8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resouces\num_9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resouces\off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resouces\remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resouces\settings.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
